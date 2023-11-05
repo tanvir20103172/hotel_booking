@@ -1,32 +1,50 @@
 @extends('admin.master')
 
 @section('content')
-<h2>Hotel Information</h2>
-<a href="{{route('hotel.form')}}" class="btn btn-success">Create Branch</a>
+<h1>Hotel Information</h1>
+
+<a href="{{route('hotel.form')}}"class="btn btn-success">Add Branch</a> 
+
+
 <table class="table">
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+    <tr align="center">
+      <th scope="col">Id</th>
+      <th scope="col">Branch Name</th>
+      <th scope="col">Email Address</th>
+      <th scope="col">Address</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Action</th>
+      
     </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <th scope="row">1</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+    @foreach($hotels as $key=> $hotel)
+    <tr align="center">
+      <th scope="row">{{$key+1}}</th>
+      <td>{{$hotel->branch}}</td>
+      <td>{{$hotel->email}}</td>
+      <td>{{$hotel->address}}</td>
+      <td>{{$hotel->contuct_number}}</td>
+      <td>
+          <!-- Button
+          <a class="btn btn-outline-success" herf=""><h6>Edit</h6></a>
+          <a class="btn btn-outline-danger" herf=""><h6>Delete</h6></a>
+          <a class="btn btn-outline-primary" herf=""><h6>View</h6></a> -->
+
+          <!-- <a class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-table"></i></a>
+          <a class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+          <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a> -->
+          
+          <a type="button" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-color="dark">View</a>
+          <a type="button" class="btn btn-outline-success btn-rounded" data-mdb-ripple-color="dark">Edit</a>
+          <a type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark">Delete</a>
+
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
+{{$hotels->links()}}
 @endsection

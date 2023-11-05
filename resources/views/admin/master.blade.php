@@ -1,115 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Hotel Sea View</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{{url('/backend')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{url('/backend')}}/css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
+@include('admin.partial.header')
 
 <body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fa-solid fa-bell-concierge" style="color: #000000;"></i>  
-                </div>
-                <div class="sidebar-brand-text mx-3">Hotel Sea View</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/dashboard')}}">
-                <i class="fa-solid fa-gauge" style="color: #000000;"></i>
-                    <span>Dashboard </span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/guest/list')}}">
-                <i class="fa-solid fa-user" style="color: #000000;"></i>
-                    <span>Guest </span></a>
-            </li>
-            
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('hotel')}}">
-                <i class="fa-solid fa-hotel" style="color: #000000;"></i>
-                    <span>Hotel </span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/room/list')}}">
-                <i class="fa-solid fa-house-chimney" style="color: #000000;"></i>
-                    <span>Rooms</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/room/type')}}">
-                <i class="fa-solid fa-house" style="color: #000000;"></i>
-                    <span>Room Type</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/amenities/list')}}">
-                <i class="fa-solid fa-arrows-to-eye" style="color: #000000;"></i>
-                    <span>Amenities</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/booking/list')}}">
-                <i class="fa-solid fa-key" style="color: #000000;"></i>
-                    <span> Booking</span></a>
-            </li>
-            
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/payment/list')}}">
-                <i class="fa-solid fa-money-bill" style="color: #000000;"></i>
-                    <span> Payment</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/report')}}">
-                <i class="fa-solid fa-file" style="color: #000000;"></i>
-                    <span> Report</span></a>
-            </li>
+@include('admin.partial.sidebar')
 
 
-
-           
-
-            
-
-           
-
-            
-
-            
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            
-
-        </ul>
-        <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -142,30 +45,12 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                
-
                 @yield('content')
 
             </div>
             <!-- End of Main Content -->
 
-
-
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-             
-            <!-- End of Footer -->
-
-
-
-
+            @include('admin.partial.footer')
 
         </div>
         <!-- End of Content Wrapper -->
@@ -214,11 +99,8 @@
     <!-- Page level custom scripts -->
     <script src="{{url('/backend')}}/js/demo/chart-area-demo.js"></script>
     <script src="{{url('/backend')}}/js/demo/chart-pie-demo.js"></script>
-
-
-
-
     <script src="https://kit.fontawesome.com/4ca2fa527c.js" crossorigin="anonymous"></script>
+    
 </body>
 
 </html>
