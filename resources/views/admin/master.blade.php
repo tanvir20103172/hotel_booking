@@ -39,8 +39,15 @@
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
+                            
                         </div>
+                                
+                        
                     </form>
+                    
+                                  
+                    <a  href="{{route('admin.logout')}}" type="button" class="btn btn-success">Logout</a>
+                                  
 
                 </nav>
                 <!-- End of Topbar -->

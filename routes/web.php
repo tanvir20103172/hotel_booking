@@ -29,6 +29,9 @@ Route::get('/admin/login',[UserController::class,'loginForm'])->name('admin.logi
 Route::post('/login-form-post', [UserController::class, 'loginPost'])->name('admin.login.post');
 
 Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/admin/logout',[UserController::class, 'logout'])->name('admin.logout');
+
     Route::get('/',[homeController::class,'home'])->name('dashboard');
     Route::get('/dashboard',[DashboardController::class,'dashboard']);
     

@@ -36,8 +36,15 @@ class UserController extends Controller
                return redirect()->route('dashboard');
             }
 
-           return redirect()->back()->withErrors('invalid user email or password');
+           return redirect()->back()->with('message','invalid user email or password');
 
+    }
+    public function logout()
+    {
+
+        auth()->logout();
+        return redirect()->route('admin.login');
+        
     }
 
 

@@ -7,7 +7,7 @@
     <meta name="author" content="">
 
     <title>Hotel Sea View</title>
-
+    
     <!-- Custom fonts for this template-->
     <link href="{{url('/backend')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -16,5 +16,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{url('/backend')}}/css/sb-admin-2.min.css" rel="stylesheet">
+    
+    
     
 </head>
