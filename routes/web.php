@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
@@ -31,6 +33,10 @@ Route::post('/login-form-post', [UserController::class, 'loginPost'])->name('adm
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/admin/logout',[UserController::class, 'logout'])->name('admin.logout');
+
+    Route::get('/admin',[AdminController::class,'admin'])->name('admin');
+
+    Route::get('/role',[RoleController::class,'role'])->name('role');
 
     Route::get('/',[homeController::class,'home'])->name('dashboard');
     Route::get('/dashboard',[DashboardController::class,'dashboard']);

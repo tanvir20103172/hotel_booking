@@ -20,8 +20,18 @@
                     <span><b>Dashboard  </b></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/guest/list')}}">
+                <a class="nav-link" href="{{route('admin')}}">
                 <i class="fa-solid fa-user" style="color: #000000;"></i>
+                    <span><b>Admin</b></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('role')}}">
+                <i class="fa-solid fa-gauge" style="color: #000000;"></i>
+                    <span><b>Role  </b></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{url('/guest/list')}}">    
+                <i class="fa-solid fa-users" style="color: #000000;"></i>
                     <span><b>Guest </b> </span></a>
             </li>
             
