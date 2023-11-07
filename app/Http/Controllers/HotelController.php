@@ -14,13 +14,14 @@ class HotelController extends Controller
         return view('admin.pages.hotel.list',compact('hotels'));
     }
     public function form(){
-        return view('admin.pages.hotel.form');
+        return view('admin.pages.hotel.f6orm');
     }
     
     public function store(Request $request){
+        // dd($request->all());
         $valided=Validator::make($request->all(),[
-            'branch'=>'required',
-            'email'=>'required',
+            'branch_name'=>'required',
+            'email_address'=>'required',
             'address'=>'required',
             'contuct_number'=>'required'
         ]);
