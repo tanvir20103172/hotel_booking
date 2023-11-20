@@ -14,7 +14,7 @@ class HotelController extends Controller
         return view('admin.pages.hotel.list',compact('hotels'));
     }
     public function form(){
-        return view('admin.pages.hotel.f6orm');
+        return view('admin.pages.hotel.form');
     }
     
     public function store(Request $request){

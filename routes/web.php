@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\homeController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
@@ -27,6 +26,17 @@ use App\Http\Controllers\ReportController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+/*Webside */
+Route::get('/',[FrontendHomeController::class,'home'])->name('home');
+
+
+
+
+
+/*ADMIN PANNEL */
+Route::group(['prefix'=>'admin'],function(){
+
+
 Route::get('/admin/login',[UserController::class,'loginForm'])->name('admin.login');
 Route::post('/login-form-post', [UserController::class, 'loginPost'])->name('admin.login.post');
 
@@ -34,39 +44,48 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/admin/logout',[UserController::class, 'logout'])->name('admin.logout');
 
-    Route::get('/admin',[AdminController::class,'admin'])->name('admin');
-
-    Route::get('/role',[RoleController::class,'role'])->name('role');
+    Route::get('/user/list',[UserController::class, 'list'])->name('user.list');
 
     Route::get('/',[homeController::class,'home'])->name('dashboard');
+
     Route::get('/dashboard',[DashboardController::class,'dashboard']);
     
+    //Guest
     Route::get('/guest/list',[GuestController::class,'list']);
     
+    //Hotel
     Route::get('/hotel/list',[HotelController::class,'list'])->name('hotel');
     Route::get('/hotel/list/form',[HotelController::class,'form'])->name('hotel.form');
     Route::post('/hotel/store',[HotelController::class,'store'])->name('hotel.store');
     
+    //Room
     Route::get('/room/list',[RoomController::class,'list'])->name('room.list');
     Route::get('/room/list/form',[RoomController::class,'form'])->name('roomlist.form');
     Route::post('/room/list/store',[RoomController::class,'store'])->name('roomlist.store');
     
+    //Room Type
     Route::get('/roomtype/list',[RoomtypeController::class,'list'])->name('roomtype.list');
     Route::get('/roomtype/list/form',[RoomtypeController::class,'form'])->name('roomtype.form');
     Route::post('/roomtype/list/store',[RoomtypeController::class,'store'])->name('roomtype.store');
-    
+    Route::get('/roomtype-edit/{id}',[RoomtypeController::class,'edit'])->name('roomtype.edit');
+    Route::put('/roomtype-update/{id}',[RoomtypeController::class,'update'])->name('roomtype.update');
+    Route::get('/roomtype-delete/{id}',[RoomtypeController::class,'delete'])->name('roomtype.delete');
+
+    //Amenities
     Route::get('/amenities/list',[AmenitiesController::class,'list']);
     Route::get('/amenities/list/form',[AmenitiesController::class,'form']);
     Route::post('/amenities/store',[AmenitiesController::class,'store'])->name('amenities.store');
     
-    
+    //Payment
     Route::get('/payment/list',[PaymentController::class,'list'])->name('payment.list');
-    
+
+    //Booking List
     Route::get('/booking/list',[BookingController::class,'list'])->name('booking.list');
-    
+
+    //Report
     Route::get('/report',[ReportController::class,'report']);
 
 
 });
-
+});
 

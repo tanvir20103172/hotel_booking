@@ -8,7 +8,7 @@
     <label for="exampleInputEmail1">Branch Name</label>
     <input type="text" class="form-control" name="branch_name" placeholder="Enter branch name" required>  
   </div>
-  @error('address')
+  @error('branch_name')
     <div class="alert alert-danger">{{ $message }}</div>
     @enderror
   

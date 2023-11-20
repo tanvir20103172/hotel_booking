@@ -19,14 +19,21 @@
   @foreach($roomtypes as $key=> $roomtype)
     <tr align="center">
       <th scope="row">{{$key+1}}</th>
-      <td>{{$roomtype->room_image}}</td>
+        <td>
+        <img width="100" height="70" src="{{ url('/uploads/rooms/',$roomtype->room_image) }}" alt="room image not found">
+      
+        </td>
       <td>{{$roomtype->name}}</td>
       <td>{{$roomtype->amount}}</td>
       
       <td>
-          <a class="btn btn-outline-success" herf=""><h6>Edit</h6></a>
-          <a class="btn btn-outline-danger" herf=""><h6>Delete</h6></a>
-          <a class="btn btn-outline-primary" herf=""><h6>View</h6></a>
+          
+
+          <a type="button"  class="btn btn-outline-primary">View</a>
+          <a type="button" href="{{route('roomtype.edit', $roomtype->id)}}" class="btn btn-outline-success">Edit</a>
+          <a type="button" href="{{route('roomtype.delete', $roomtype->id)}}"class="btn btn-outline-danger">Delete</a>
+          
+
           
       </td>
     </tr>
