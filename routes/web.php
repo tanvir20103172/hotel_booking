@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
@@ -28,6 +29,8 @@ use App\Http\Controllers\ReportController;
 */
 /*Webside */
 Route::get('/',[FrontendHomeController::class,'home'])->name('home');
+Route::get('/web/login',[FrontendLoginController::class,'login'])->name('website.login');
+Route::get('/web/registration',[FrontendLoginController::class,'registration'])->name('website.registration');
 
 
 
@@ -37,12 +40,12 @@ Route::get('/',[FrontendHomeController::class,'home'])->name('home');
 Route::group(['prefix'=>'admin'],function(){
 
 
-Route::get('/admin/login',[UserController::class,'loginForm'])->name('admin.login');
+Route::get('/login',[UserController::class,'loginForm'])->name('admin.login');
 Route::post('/login-form-post', [UserController::class, 'loginPost'])->name('admin.login.post');
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/admin/logout',[UserController::class, 'logout'])->name('admin.logout');
+    Route::get('/logout',[UserController::class, 'logout'])->name('admin.logout');
 
     Route::get('/user/list',[UserController::class, 'list'])->name('user.list');
 
