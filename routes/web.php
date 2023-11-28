@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
+use App\Http\Controllers\Frontend\RoomsController as FrontendRoomsController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
@@ -31,7 +32,7 @@ use App\Http\Controllers\ReportController;
 Route::get('/',[FrontendHomeController::class,'home'])->name('home');
 Route::get('/web/login',[FrontendLoginController::class,'login'])->name('website.login');
 Route::get('/web/registration',[FrontendLoginController::class,'registration'])->name('website.registration');
-
+Route::get('/web/roomview/{id}',[FrontendRoomsController::class,'view'])->name('website.roomview');
 
 
 

@@ -1,5 +1,5 @@
 <!-- gallery -->
-<div  class="gallery">
+<div style="display: inline-block;"  class="gallery">
          <div class="container">
             <div class="row">
                <div class="col-md-12">

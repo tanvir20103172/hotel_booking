@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-<h2>Guest Information</h2>
+<h2>Usre Information</h2>
 <table class="table">
   <thead>
     <tr>

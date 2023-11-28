@@ -29,7 +29,7 @@
       <td>
           
 
-          <a type="button"  class="btn btn-outline-primary">View</a>
+          <a type="button" href="{{route('website.roomview', $roomtype->id)}}" class="btn btn-outline-primary">View</a>
           <a type="button" href="{{route('roomtype.edit', $roomtype->id)}}" class="btn btn-outline-success">Edit</a>
           <a type="button" href="{{route('roomtype.delete', $roomtype->id)}}"class="btn btn-outline-danger">Delete</a>
           
