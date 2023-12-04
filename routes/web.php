@@ -66,7 +66,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hotel/list',[HotelController::class,'list'])->name('hotel');
     Route::get('/hotel/list/form',[HotelController::class,'form'])->name('hotel.form');
     Route::post('/hotel/store',[HotelController::class,'store'])->name('hotel.store');
-    
+
+    Route::get('/hotel-edit/{id}',[HotelController::class,'edit'])->name('hotel.edit');
+    Route::put('/hotel-update/{id}',[HotelController::class,'update'])->name('hotel.update');
+    Route::get('/hotel-delete/{id}',[HotelController::class,'delete'])->name('hotel.delete');
     //Room
     Route::get('/room/list',[RoomController::class,'list'])->name('room.list');
     Route::get('/room/list/form',[RoomController::class,'form'])->name('roomlist.form');

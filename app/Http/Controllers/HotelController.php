@@ -43,4 +43,29 @@ class HotelController extends Controller
         return redirect()->back()->witherrors($valided);
     
     }
+
+    public function edit($id){
+        $AllHotel=Hotel::find($id);
+        return view ('admin.pages.hotel.edit',compact('AllHotel'));
+     }
+    
+
+     public function update(Request $request,$id){
+        $AllHotel=Hotel::find($id);
+        $AllHotel->update([
+            'branch_name'=>$request->branch,
+            'email_address'=>$request->email,
+            'address'=>$request->address,
+            'contuct_number'=>$request->contuct_number
+        ]);
+        return redirect()->back();
+     } 
+
+     public function delete($id){
+        $AllHotel=Hotel::find($id);
+        if($AllHotel){
+            $AllHotel->delete();
+        }
+        return redirect()->back();
+     }
 }
