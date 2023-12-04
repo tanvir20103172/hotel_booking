@@ -33,7 +33,7 @@ Route::get('/',[FrontendHomeController::class,'home'])->name('home');
 Route::get('/web/login',[FrontendLoginController::class,'login'])->name('website.login');
 Route::get('/web/registration',[FrontendLoginController::class,'registration'])->name('website.registration');
 Route::get('/web/roomview/{id}',[FrontendRoomsController::class,'view'])->name('website.roomview');
-
+Route::get('/search',[FrontendHomeController::class,'search'])->name('website.search');
 
 
 
@@ -48,11 +48,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/logout',[UserController::class, 'logout'])->name('admin.logout');
 
-    Route::get('/user/list',[UserController::class, 'list'])->name('user.list');
+   
 
     Route::get('/',[homeController::class,'home'])->name('dashboard');
 
     Route::get('/dashboard',[DashboardController::class,'dashboard']);
+    
+    //user
+    Route::get('/user/list',[UserController::class, 'list'])->name('user.list');
+    Route::get('/user/list/form',[UserController::class, 'form'])->name('user.form');
+    Route::post('/user/list/store',[UserController::class, 'store'])->name('user.store');
     
     //Guest
     Route::get('/guest/list',[GuestController::class,'list']);

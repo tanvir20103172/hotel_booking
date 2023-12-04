@@ -14,4 +14,14 @@ class HomeController extends Controller
         // dd($roomtypes);
         return view('frontend.pages.home.home', compact('roomtypes'));
     }
+    public function search(Request $request){
+        //dd("habijabi");
+        if($request->search){
+           $roomtypes=Roomtype::where('name','LIKE','%'.$request->search.'%')->get(); 
+        }
+        else{
+          $roomtypes=Roomtype::all();   
+        };
+        return view ('frontend.pages.home.home',compact('roomtypes'));
+        }
 }

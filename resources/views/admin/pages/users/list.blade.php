@@ -1,35 +1,33 @@
 @extends('admin.master')
 
 @section('content')
-<h2>Usre Information</h2>
+<h2>User Information</h2>
+<a href="{{route('user.form')}}"class="btn btn-success">Add User</a>
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+  @foreach($users as $key=>$user)
+    <tr align="center">
+      <th scope="row">{{$key+1}}</th>
+      <td>{{$user->name}}</td>
+      <td>{{$user->email}}</td>
+      <td>{{$user->role}}</td>
+      <td>
+      
+          <a type="button" href="" class="btn btn-outline-success">Edit</a>
+          <a type="button" href=""class="btn btn-outline-danger">Delete</a>
+          
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
 

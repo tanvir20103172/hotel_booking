@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -48,7 +49,36 @@ class UserController extends Controller
     }
    
     public function list(){
-        return view('admin.pages.users.list');
+        $users=User::paginate(3);
+        return view('admin.pages.users.list',compact('users'));
+    }
+    
+    public function form(){
+    
+        return view('admin.pages.users.form');
     }
 
+    public function store(Request $request){
+        
+        // $valided=Validator::make($request->all(),[
+        //        'name'=>'required',
+        //        'email'=>'required',
+        //        'role'=>'required',
+        //        'image'=>'required'
+        //    ]);
+   
+        //    if($valided->fails()){
+        //        return redirect()->back()->witherrors($valided);
+        //    }
+    
+#
+           User::create([
+               'name'=>$request->name,
+               'email'=>$request->email,
+               'role'=>$request->role,
+               'password'=>$request->password,
+           ]);
+           // notify()->success('Laravel Notify is awesome!');
+           return redirect()->back();
+ } 
 }
