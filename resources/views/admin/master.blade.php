@@ -45,13 +45,17 @@
                         
                     </form>
                     
-                                  
+                    <img style="border-radius: 50%;" height="30" width="30" src="{{url('uploads/users',auth()->user()->image)}}" alt=""/> 
+                    <div class="p-4">
+                    {{auth()->user()->name}}
+                       ({{auth()->user()->role}})
+                    </div>
                     <a  href="{{route('admin.logout')}}" type="button" class="btn btn-success">Logout</a>
                                   
 
                 </nav>
                 <!-- End of Topbar -->
-
+                @include('notify::components.notify')
                 @yield('content')
 
             </div>
@@ -107,7 +111,7 @@
     <script src="{{url('/backend')}}/js/demo/chart-area-demo.js"></script>
     <script src="{{url('/backend')}}/js/demo/chart-pie-demo.js"></script>
     <script src="https://kit.fontawesome.com/4ca2fa527c.js" crossorigin="anonymous"></script>
-    
+    @notifyJs
 </body>
 
 </html>

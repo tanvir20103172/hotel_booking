@@ -33,46 +33,30 @@
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         
-        <form action="" method='post'>
+        <form action="{{route('website.user.registration')}}" method='post'>
             @csrf
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3"><h1>Sign up</h1> </p>
           </div>
 
           <div class="form-outline mb-4">
-            <input required type="text" id="form3Example3" name="first-name" class="form-control form-control-lg"
-              placeholder="Enter first-name" />
-            <label class="form-label" for="form3Example3">First Name</label>
-            @error('first-name')
+            <input required type="text" id="form3Example3" name="name" class="form-control form-control-lg"
+              placeholder="Enter Full_Name" />
+            <label class="form-label" for="form3Example3">Name</label>
+            @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            <input required type="text" id="form3Example3" name="last-name" class="form-control form-control-lg"
-              placeholder="Enter last-name" />
-            <label class="form-label" for="form3Example3">Last Name</label>
-            @error('last-name')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-            <input required type="number" id="form3Example3" name="contuct-number" class="form-control form-control-lg"
-              placeholder="Enter contuct number" />
-            <label class="form-label" for="form3Example3">Contuct Numbere</label>
-            @error('contuct-number')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-          </div>
-         
 
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input required type="email" id="form3Example3" name="email" class="form-control form-control-lg"
               placeholder="Enter a valid email address" />
-
             <label class="form-label" for="form3Example3">Email address</label>
             @error('email')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
           </div>
           
-
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input required type="password" id="form3Example4" name="password" class="form-control form-control-lg"

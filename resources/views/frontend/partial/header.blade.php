@@ -9,15 +9,9 @@
    <div class="header">
       <div class="container">
          <div class="row">
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col logo_section">
-               <div class="full">
-                  <div class="center-desk">
-                     <h1 class="text-center">Hotel Sea View</h1>
-                  </div>
-               </div>
-            </div>
+            
       
-             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col">
+             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col">
              <form action="{{route('website.search')}}" method="get">
                <div class="input-group">
                   <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -26,7 +20,7 @@
                </form>
              </div>
            
-            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                <nav class="navigation navbar navbar-expand-md navbar-dark ">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
@@ -60,8 +54,13 @@
 
                         @auth
                         <li class="nav-item">
-                           <a class="nav-link" href="">Logout</a>
+                           <a class="nav-link" href="{{ route('web.logout')}}">Logout</a>
                         </li>
+                        
+                           <div>
+                              
+                              <p><b> ({{auth()->user()->role}})</b></p>
+                           </div>
                         @endauth
                      </ul>
                   </div>

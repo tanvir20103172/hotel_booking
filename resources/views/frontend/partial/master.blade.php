@@ -2,6 +2,7 @@
 <html lang="en">
    <head>
       <!-- basic -->
+      @notifyCss
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <!-- mobile metas -->
@@ -33,6 +34,7 @@
    <body class="main-layout">
       
       <!-- Header -->
+      @include('notify::components.notify')
       @yield('rony')
       
       <!-- Slider -->
@@ -63,5 +65,7 @@
       <!-- sidebar -->
       <script src="{{url('frontend/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
       <script src="{{url('frontend/js/custom.js')}}"></script>
+      @notifyJs
+   
    </body>
 </html>

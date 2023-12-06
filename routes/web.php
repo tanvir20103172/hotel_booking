@@ -28,12 +28,32 @@ use App\Http\Controllers\ReportController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
 /*Webside */
 Route::get('/',[FrontendHomeController::class,'home'])->name('home');
-Route::get('/web/login',[FrontendLoginController::class,'login'])->name('website.login');
-Route::get('/web/registration',[FrontendLoginController::class,'registration'])->name('website.registration');
-Route::get('/web/roomview/{id}',[FrontendRoomsController::class,'view'])->name('website.roomview');
 Route::get('/search',[FrontendHomeController::class,'search'])->name('website.search');
+
+//login
+Route::get('/web/login',[FrontendLoginController::class,'login'])->name('website.login');
+Route::post('/web/login-form-post', [FrontendLoginController::class, 'loginPosts'])->name('web.login.post');
+
+
+
+//registration
+Route::get('/web/registration',[FrontendLoginController::class,'registration'])->name('website.registration');
+Route::post('/web/user/registration',[FrontendLoginController::class,'user_registration'])->name('website.user.registration');
+
+//single view
+Route::get('/web/roomview/{id}',[FrontendRoomsController::class,'view'])->name('website.roomview');
+
+
+
+Route::group(['middlewere'=>'auth'],function(){
+
+    Route::get('/web/logout',[FrontendLoginController::class, 'web_logout'])->name('web.logout');
+
+});
 
 
 
@@ -60,7 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/user/list/store',[UserController::class, 'store'])->name('user.store');
     
     //Guest
-    Route::get('/guest/list',[GuestController::class,'list']);
+    Route::get('/guest/list',[GuestController::class,'list'])->name('guest');
     
     //Hotel
     Route::get('/hotel/list',[HotelController::class,'list'])->name('hotel');
@@ -95,7 +115,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/booking/list',[BookingController::class,'list'])->name('booking.list');
 
     //Report
-    Route::get('/report',[ReportController::class,'report']);
+    Route::get('/report',[ReportController::class,'report'])->name('report');
 
 
 });

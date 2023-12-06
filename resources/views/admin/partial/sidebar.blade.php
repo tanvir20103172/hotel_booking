@@ -26,7 +26,7 @@
             </li>
            
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/guest/list')}}">    
+                <a class="nav-link" href="{{route('guest')}}">    
                 <i class="fa-solid fa-users" style="color: #000000;"></i>
                     <span><b>Guest </b> </span></a>
             </li>
@@ -64,7 +64,7 @@
                     <span> <b>Payment </b></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/report')}}">
+                <a class="nav-link" href="{{route('report')}}">
                 <i class="fa-solid fa-file" style="color: #000000;"></i>
                     <span> Report </b></span></a>
             </li>

@@ -10,6 +10,11 @@
     </div>
 
     <div class="form-group">
+        <label for="exampleInputEmail1">Image</label>
+        <input type="file" class="form-control" name="image" placeholder="Choose Image">
+    </div>
+
+    <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
         <input type="email" class="form-control" name="email" placeholder="Enter Email Address">
     </div>

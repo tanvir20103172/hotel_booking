@@ -33,7 +33,8 @@
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         
-        <form action="" method='post'>
+        <form action="{{route('web.login.post')}}" method='post'>
+         
             @csrf
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3"><h1>Sign in</h1> </p>
@@ -65,7 +66,8 @@
           <p class="alert alert-danger">{{session()->get('message')}}</p>
           @endif
           <div class="text-center text-lg-start mt-4 pt-2">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+          <!-- <a href="{{route('web.logout')}}" class="btn btn-primary btn-lg btn-block" type="submit">Login</a> -->
+          <button class="btn btn-primary btn-lg btn-block" type="submit"> Login</button>
           </div>
           
         </form>

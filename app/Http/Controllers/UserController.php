@@ -12,6 +12,7 @@ class UserController extends Controller
     public function loginForm(){
         return view ('admin.pages.login');
     }
+    
     public function loginPost(Request $request)
     {
             $val=Validator::make($request->all(),
@@ -36,8 +37,8 @@ class UserController extends Controller
             {
                return redirect()->route('dashboard');
             }
-
-           return redirect()->back()->with('message','invalid user email or password');
+           notify()->success('Success Login');
+           return redirect()->back();
 
     }
     public function logout()
@@ -49,7 +50,7 @@ class UserController extends Controller
     }
    
     public function list(){
-        $users=User::paginate(3);
+        $users=User::all();
         return view('admin.pages.users.list',compact('users'));
     }
     
@@ -71,9 +72,17 @@ class UserController extends Controller
         //        return redirect()->back()->witherrors($valided);
         //    }
     
-#
+        $fileName=null;
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $fileName=date('Ymdhis').'.'.$file->getClientOriginalExtension();
+            $file->storeAs('/users',$fileName);
+
+        }
            User::create([
                'name'=>$request->name,
+               'image'=>$fileName,
                'email'=>$request->email,
                'role'=>$request->role,
                'password'=>$request->password,
