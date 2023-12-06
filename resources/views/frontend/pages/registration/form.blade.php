@@ -46,6 +46,17 @@
             @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+            </div>
+
+
+            <div class="form-outline mb-4">
+            <input required type="file" id="form3Example3" name="image" class="form-control form-control-lg"
+              placeholder="Choose Image" />
+            <label class="form-label" for="form3Example3">Image</label>
+            @error('image')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+          </div>
 
           <!-- Email input -->
           <div class="form-outline mb-4">

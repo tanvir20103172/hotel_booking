@@ -11,14 +11,7 @@
          <div class="row">
             
       
-             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col">
-             <form action="{{route('website.search')}}" method="get">
-               <div class="input-group">
-                  <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                  <button type="submit" class="btn btn-sm btn-outline-primary" data-mdb-ripple-init>search</button>
-               </div>
-               </form>
-             </div>
+            
            
             <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                <nav class="navigation navbar navbar-expand-md navbar-dark ">
@@ -54,18 +47,22 @@
 
                         @auth
                         <li class="nav-item">
-                           <a class="nav-link" href="{{ route('web.logout')}}">Logout</a>
+                           <a class="nav-link" href="{{ route('web.logout')}}">Logout({{auth()->user()->role}})</a>
                         </li>
                         
-                           <div>
-                              
-                              <p><b> ({{auth()->user()->role}})</b></p>
-                           </div>
                         @endauth
                      </ul>
                   </div>
                </nav>
             </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col">
+             <form action="{{route('website.search')}}" method="get">
+               <div class="input-group">
+                  <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                  <button type="submit" class="btn btn-sm btn-outline-primary" data-mdb-ripple-init>search</button>
+               </div>
+               </form>
+             </div>
          </div>
       </div>
    </div>

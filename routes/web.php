@@ -34,7 +34,7 @@ use App\Http\Controllers\ReportController;
 Route::get('/',[FrontendHomeController::class,'home'])->name('home');
 Route::get('/search',[FrontendHomeController::class,'search'])->name('website.search');
 
-//login
+//web login
 Route::get('/web/login',[FrontendLoginController::class,'login'])->name('website.login');
 Route::post('/web/login-form-post', [FrontendLoginController::class, 'loginPosts'])->name('web.login.post');
 
@@ -51,6 +51,7 @@ Route::get('/web/roomview/{id}',[FrontendRoomsController::class,'view'])->name('
 
 Route::group(['middlewere'=>'auth'],function(){
 
+    //web logout
     Route::get('/web/logout',[FrontendLoginController::class, 'web_logout'])->name('web.logout');
 
 });
@@ -60,11 +61,14 @@ Route::group(['middlewere'=>'auth'],function(){
 /*ADMIN PANNEL */
 Route::group(['prefix'=>'admin'],function(){
 
-
+//admin login
 Route::get('/login',[UserController::class,'loginForm'])->name('admin.login');
 Route::post('/login-form-post', [UserController::class, 'loginPost'])->name('admin.login.post');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware'=>'checkAdmin'],function (){
+
+    
 
     Route::get('/logout',[UserController::class, 'logout'])->name('admin.logout');
 
@@ -120,4 +124,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 });
-
+});

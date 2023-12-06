@@ -75,6 +75,7 @@ class LoginController extends Controller
 
         User::create([
         'name'=>$request->name,
+        'image'=>$request->image,
         'role'=>'customer',
         'email'=>$request->email,
         'password'=>$request->password,
