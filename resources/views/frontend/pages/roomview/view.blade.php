@@ -15,7 +15,7 @@
         <div class="card-body">
           <h4 class="card-title">Room Name: {{$Roomtype->name}}</h4>
           <p class="card-text">Ammount: BDT- {{$Roomtype->amount}}/-</p>
-          <a href="" class="col-12 btn btn-primary">Booking Now</a>
+          <a href="{{route('web.booking',$Roomtype->id)}}" class="col-12 btn btn-primary">Booking Now</a>
         </div>
       </div>
     

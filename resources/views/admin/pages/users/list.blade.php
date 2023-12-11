@@ -7,10 +7,12 @@
   <thead>
     <tr align="center">
       <th scope="col">Id</th>
-      <th scope="col">Name</th>
       <th scope="col">Image</th>
-      <th scope="col">Email</th>
+      <th scope="col">Name</th>
       <th scope="col">Role</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -18,16 +20,18 @@
   @foreach($users as $key=>$user)
     <tr align="center">
       <th scope="row">{{$key+1}}</th>
-      <td>{{$user->name}}</td>
       <td>
         <img style="border-radius: 50%;" height="40" width="40" src="{{url('uploads/users',$user->image)}}" alt="">
       </td>
-      <td>{{$user->email}}</td>
+      <td>{{$user->name}}</td>
       <td>{{$user->role}}</td>
+      <td>{{$user->phone}}</td>
+      <td>{{$user->email}}</td>
+      <td>{{$user->address}}</td>
       <td>
-          <a type="button" href="" class="btn btn-outline-primary">View</a>
-          <a type="button" href="" class="btn btn-outline-success">Edit</a>
-          <a type="button" href=""class="btn btn-outline-danger">Delete</a>
+          <a type="button" href="{{route('admin.profile',$user->id)}}" class="btn btn-outline-primary">View</a>
+          <a type="button" href="{{route('profile.edit',$user->id)}}" class="btn btn-outline-success">Edit</a>
+          <a type="button" href="{{route('profile.delete',$user->id)}}"class="btn btn-outline-danger">Delete</a>
           
       </td>
     </tr>

@@ -11,17 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('registrations', function (Blueprint $table) {
+        Schema::create('amenities', function (Blueprint $table) {
             $table->id();
-            $table->text('first_name');
-            $table->string('last_name');
-            $table->integer('contuct_number');
-            $table->string('email');
-            $table->string('password');
+            $table->string('amenities_type');
+            $table->text('image')->nullable();
             $table->timestamps();
-
-            
-            
         });
     }
 
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registrations');
+        Schema::dropIfExists('amenities');
     }
 };

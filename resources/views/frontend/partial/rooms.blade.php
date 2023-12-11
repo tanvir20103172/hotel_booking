@@ -1,6 +1,9 @@
 <!-- our_room -->
 
 
+<!-- our_room -->
+
+
 <div class="our_room">
    <div class="container">
       <div class="row">
@@ -12,19 +15,20 @@
          </div>
       </div>
       <div class="row">
-         
+      @foreach($roomtypes as $roomtype)
          <div class="col-md-4 col-sm-6">
             <div id="serv_hover" class="room">
                <div class="room_img">
-                  <figure><img src="{{url('frontend/rooms/dilux.jpg')}}" alt="#" /></figure>
+                  <figure><img height="30px" src="{{ url('/uploads/rooms/',$roomtype->room_image) }}"></figure>
                </div>
                <div class="bed_room">
-                  <h3>Deluxe Room</h3>
-
+                  <h3>{{$roomtype->name}}</h3>
+                  <h4>BDT- {{$roomtype->amount}}/-</h4>
+                  <a href="{{route('website.roomview',$roomtype->id)}}"class="btn btn-info text-light">View More</a>
                </div>
             </div>
          </div>
-         
+         @endforeach
       </div>
    </div>
 </div>

@@ -39,7 +39,7 @@ class HotelController extends Controller
             'action'=>$request->action
 
         ]);
-        // notify()->success('Laravel Notify is awesome!');
+        notify()->success('Successfully Store');
         return redirect()->back()->witherrors($valided);
     
     }
@@ -53,11 +53,12 @@ class HotelController extends Controller
      public function update(Request $request,$id){
         $AllHotel=Hotel::find($id);
         $AllHotel->update([
-            'branch_name'=>$request->branch,
-            'email_address'=>$request->email,
+            'branch'=>$request->branch_name,
+            'email'=>$request->email_address,
             'address'=>$request->address,
             'contuct_number'=>$request->contuct_number
         ]);
+        notify()->success('Update Hotel');
         return redirect()->back();
      } 
 
@@ -66,6 +67,7 @@ class HotelController extends Controller
         if($AllHotel){
             $AllHotel->delete();
         }
+        notify()->success('Delete Hotel Successfully');
         return redirect()->back();
      }
 }

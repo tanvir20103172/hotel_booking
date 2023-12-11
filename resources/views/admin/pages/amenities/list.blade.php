@@ -2,36 +2,43 @@
 
 @section('content')
 <h2>Amenities List</h2>
-<a href="{{url('/amenities/list/form')}}" class="btn btn-success">Add Amenities</a>
+<a href="{{route('amenities.form')}}" class="btn btn-success">Add Amenities</a>
 
 <table class="table">
   <thead>
-    <tr>
-      <th scope="col">Si.</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+  <tr align="center">
+      <th scope="col">Id</th>
+      <th scope="col">Amenities Type</th>
+      <th scope="col">Image</th>
+      <th scope="col">Action</th>
+      
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+  @foreach($allAmenities as $key=> $amenities)
+    <tr align="center">
+      <th scope="row">{{$key+1}}</th>
+      <td>{{$amenities->amenities_type}}</td>
+        <td>
+        <img width="70" height="40" src="{{ url('/uploads/amenities',$amenities->image) }}" alt="amenities image not found">
+      
+        </td>
+      
+      
+      
+      <td>
+          
+
+          <a type="button" href="{{route('website.amenitiesview',$amenities->id)}}" class="btn btn-outline-primary">View</a>
+          <a type="button" href="{{route('amenities.edit',$amenities->id)}}" class="btn btn-outline-success">Edit</a>
+          <a type="button" href="{{route('amenities.delete',$amenities->id)}}"class="btn btn-outline-danger">Delete</a>
+          
+
+          
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
+{{$allAmenities->links()}}
 @endsection

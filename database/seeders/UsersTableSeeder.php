@@ -18,6 +18,8 @@ class UsersTableSeeder extends Seeder
             'image'=>'rony.jpg',
             'email'=>'admin@gmail.com',
             'role'=>'admin',
+            'phone'=>'01933013349',
+            'address'=>'Uttara, Dhaka',
             'password'=>bcrypt('123456'),
         ]);
     }

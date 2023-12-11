@@ -58,6 +58,23 @@
             @enderror
           </div>
 
+          <div class="form-outline mb-4">
+            <input required type="text" id="form3Example3" name="phone" class="form-control form-control-lg"
+              placeholder="Enter Contuct Number" />
+            <label class="form-label" for="form3Example3">Phone No</label>
+            @error('phone')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            </div>
+            <div class="form-outline mb-4">
+            <input required type="text" id="form3Example3" name="address" class="form-control form-control-lg"
+              placeholder="Enter Addresse" />
+            <label class="form-label" for="form3Example3">Address</label>
+            @error('address')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            </div>
+
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input required type="email" id="form3Example3" name="email" class="form-control form-control-lg"

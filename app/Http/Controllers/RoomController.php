@@ -34,7 +34,7 @@ class RoomController extends Controller
                      'action'=>$request->action
          
                  ]);
-                 // notify()->success('Laravel Notify is awesome!');
+                 notify()->success('Successful!');
                  return redirect()->back()->witherrors($valided);
        } 
 }
