@@ -8,9 +8,10 @@
   <thead>
     <tr align="center">
       <th scope="col">Id</th>
+      <th scope="col">Room Image</th>
+      <th scope="col">Room Name</th>
       <th scope="col">Room No</th>
-      <th scope="col">Type</th>
-      <th scope="col">No of Accomodate</th>
+      <th scope="col">Amount</th>
       <th scope="col">Action</th>
       
     </tr>
@@ -19,15 +20,17 @@
   @foreach($rooms as $key=> $room)
     <tr align="center">
       <th scope="row">{{$key+1}}</th>
+      <td>
+        <img width="100" height="70" src="{{ url('/uploads/rooms/',$room->image) }}" alt="room image not found">
+      
+        </td>
+      <td>{{$room->room_name}}</td>
       <td>{{$room->room_no}}</td>
-      <td>{{$room->type}}</td>
-      <td>{{$room->no_o_accomodate}}</td>
+      <td>{{$room->amount}}</td>
       
       <td>
-          <a class="btn btn-outline-success" herf=""><h6>Edit</h6></a>
-          <a class="btn btn-outline-danger" herf=""><h6>Delete</h6></a>
-          <a class="btn btn-outline-primary" herf=""><h6>View</h6></a>
-          
+          <a class="btn btn-outline-success" herf="{{route('room.edit', $room->id)}}"><h6>Edit</h6></a>
+          <a class="btn btn-outline-danger" herf="{{route('room.delete', $room->id)}}"><h6>Delete</h6></a>  
       </td>
     </tr>
     @endforeach

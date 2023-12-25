@@ -36,6 +36,10 @@ use App\Http\Controllers\ReportController;
 Route::get('/',[FrontendHomeController::class,'home'])->name('home');
 Route::get('/search',[FrontendHomeController::class,'search'])->name('website.search');
 
+//room serch
+Route::post('/room-search',[FrontendHomeController::class,'room_search'])->name('website.room.search');
+
+
 //web login
 Route::get('/web/login',[FrontendLoginController::class,'login'])->name('website.login');
 Route::post('/web/login-form-post', [FrontendLoginController::class, 'loginPosts'])->name('web.login.post');
@@ -49,6 +53,9 @@ Route::post('/web/user/registration',[FrontendLoginController::class,'user_regis
 //single view room
 Route::get('/web/roomview/{id}',[FrontendRoomsController::class,'view'])->name('website.roomview');
 
+//single view roomlist
+Route::get('/web/roomlistview/{id}',[FrontendRoomsController::class,'viewlist'])->name('website.roomlistview');
+
 //single view amenities
 Route::get('/web/amenitiesview/{id}',[FrontendAmenitiesController::class,'view'])->name('website.amenitiesview');
 
@@ -61,7 +68,11 @@ Route::group(['middlewere'=>'auth'],function(){
     Route::post('/profile-update/{id}',[FrontendLoginController::class,'update'])->name('web.profile.update');
 
     //booking
-    Route::get('/web/booking/{id}',[FrontendBookingController::class, 'booking'])->name('web.booking');
+    Route::post('/web/booking/form',[FrontendBookingController::class, 'form'])->name('web.booking.form');
+
+    Route::post('/web/booking/store',[FrontendBookingController::class, 'store'])->name('web.booking.store');
+
+    Route::post('web/booking/room/store',[FrontendBookingController::class,'room_store'])->name('website.room.store');
 
     //web logout
     Route::get('/web/logout',[FrontendLoginController::class, 'web_logout'])->name('web.logout');
@@ -120,6 +131,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/room/list',[RoomController::class,'list'])->name('room.list');
     Route::get('/room/list/form',[RoomController::class,'form'])->name('roomlist.form');
     Route::post('/room/list/store',[RoomController::class,'store'])->name('roomlist.store');
+    Route::get('/room-edit/{id}',[RoomController::class,'edit'])->name('room.edit');
+    Route::put('/room-update/{id}',[RoomController::class,'update'])->name('room.update');
+    Route::get('/room-delete/{id}',[RoomController::class,'delete'])->name('room.delete');
     
     //Room Type
     Route::get('/roomtype/list',[RoomtypeController::class,'list'])->name('roomtype.list');
@@ -140,8 +154,11 @@ Route::group(['middleware' => 'auth'], function () {
     //Payment
     Route::get('/payment/list',[PaymentController::class,'list'])->name('payment.list');
 
-    //Booking List
+
+    //Booking
     Route::get('/booking/list',[BookingController::class,'list'])->name('booking.list');
+
+    
 
     //Report
     Route::get('/report',[ReportController::class,'report'])->name('report');

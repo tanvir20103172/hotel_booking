@@ -85,8 +85,9 @@ class LoginController extends Controller
 
     public function profile()
     {
-        $bookings=Booking::where('user_id',auth()->user()->id)->get();
-        //$bookings=Booking::where('user_id',auth()->user())->id()->get();
+        //$bookings=Booking::where('user_id',auth()->user()->id)->get();
+        //dd($bookings);
+        $bookings=Booking::all();
         $user_id = User::all();
         return view('frontend.pages.profile.view', compact('user_id','bookings'));
     }

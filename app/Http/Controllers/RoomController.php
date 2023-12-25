@@ -10,6 +10,7 @@ class RoomController extends Controller
     
        public function list(){
               $rooms=Room::paginate(3);
+              //dd( $rooms);
                return view('admin.pages.rooms.room.list',compact('rooms'));
            }
         public function form(){
@@ -17,24 +18,68 @@ class RoomController extends Controller
 }
        public function store(Request $request){
               $valided=Validator::make($request->all(),[
+                     'image'=>'required',
+                     'room_name'=>'required',
                      'room_no'=>'required',
-                     'type'=>'required',
-                     'no_of_accomodate'=>'required'
+                     'amount'=>'required'
                  ]);
          
                  if($valided->fails()){
+                    notify()->error('Failed');
                      return redirect()->back()->witherrors($valided);
                  }
+
+                 $fileName=null;
+
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $fileName=date('Ymdhis').'.'.$file->getClientOriginalExtension();
+            $file->storeAs('/rooms',$fileName);
+
+        }
                  
          
                  Room::create([
+                     'image'=>$fileName,
+                     'room_name'=>$request->room_name,
                      'room_no'=>$request->room_no,
-                     'type'=>$request->type,
-                     'no_of_accomodate'=>$request->no_of_accomodate,
-                     'action'=>$request->action
+                     'amount'=>$request->amount
          
                  ]);
                  notify()->success('Successful!');
                  return redirect()->back()->witherrors($valided);
        } 
+
+       public function edit($id){
+        $SingleRoom=Room::find($id);
+        return view ('admin.pages.rooms.room.edit',compact('SingleRoom'));
+     }
+     public function update(Request $request,$id){
+         $SingleRoom=Room::find($id);
+         $fileName=$SingleRoom->image;
+         if($request->hasFile('image'))
+         {
+             $file=$request->file('image');
+             $fileName=date('Ymdhis').'.'.$file->getClientOriginalExtension();
+             $file->storeAs('/rooms',$fileName);
+ 
+         }
+         $SingleRoom->update([
+             'image'=>$fileName,
+             'room_name'=>$request->room_name,
+             'room_no'=>$request->room_no, 
+             'amount'=>$request->amount, 
+     
+         ]);
+         return redirect()->back();
+      }
+ 
+      public function delete($id){
+         $SingleRoom=Room::find($id);
+         if($SingleRoom){
+             $SingleRoom->delete();
+         }
+         return redirect()->back();
+      }
 }

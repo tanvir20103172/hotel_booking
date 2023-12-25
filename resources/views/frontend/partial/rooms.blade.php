@@ -15,6 +15,7 @@
          </div>
       </div>
       <div class="row">
+      
       @foreach($roomtypes as $roomtype)
          <div class="col-md-4 col-sm-6">
             <div id="serv_hover" class="room">

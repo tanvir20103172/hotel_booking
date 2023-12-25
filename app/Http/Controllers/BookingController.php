@@ -8,5 +8,5 @@ class BookingController extends Controller
 {
     public function list(){
         return view('admin.pages.booking.list');
-    }
+    } 
 }

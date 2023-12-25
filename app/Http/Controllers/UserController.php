@@ -28,6 +28,7 @@ class UserController extends Controller
 
         if ($val->fails()) {
             //message
+            notify()->success('Failed');
             return redirect()->back()->withErrors($val);
         }
 
@@ -38,16 +39,20 @@ class UserController extends Controller
 
         $login = auth()->attempt($credentials);
         if ($login) {
+            notify()->success('Login Success');
             return redirect()->route('dashboard');
         }
-        notify()->success('Success Login');
+        
         return redirect()->back();
     }
     public function logout()
     {
 
         auth()->logout();
+
+    
         return redirect()->route('admin.login');
+        notify()->success('Logout Success');
     }
 
     public function list()
@@ -91,7 +96,7 @@ class UserController extends Controller
             'address'=>$request->address,
             'password' => $request->password,
         ]);
-        // notify()->success('Laravel Notify is awesome!');
+        notify()->success('Store Success');
         return redirect()->back();
     }
 

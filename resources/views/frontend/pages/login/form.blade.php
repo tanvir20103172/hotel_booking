@@ -69,6 +69,10 @@
           <!-- <a href="{{route('web.logout')}}" class="btn btn-primary btn-lg btn-block" type="submit">Login</a> -->
           <button class="btn btn-primary btn-lg btn-block" type="submit"> Login</button>
           </div>
+          <br>
+          <div>
+            <p>Don't have an account? <a href="{{route('website.registration')}}">Sing Up</a></p>
+          </div>
           
         </form>
       </div>

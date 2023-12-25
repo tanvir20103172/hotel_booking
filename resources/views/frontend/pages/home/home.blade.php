@@ -12,11 +12,10 @@
       @include('frontend.partial.about')
 
       <!-- our rooms -->
-      @include('frontend.partial.rooms')
-      
+      @include('frontend.partial.rooms')      
  
       <!-- gallery -->
-      @include('frontend.partial.gallery')
+      @include('frontend.partial.roomlist')
 
       <!-- blog -->
       @include('frontend.partial.amenities')

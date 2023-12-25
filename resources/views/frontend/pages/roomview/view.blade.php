@@ -14,8 +14,13 @@
         <img class="card-img-top" src="{{url('/uploads/rooms/',$Roomtype->room_image)}}" alt="Card image">
         <div class="card-body">
           <h4 class="card-title">Room Name: {{$Roomtype->name}}</h4>
-          <p class="card-text">Ammount: BDT- {{$Roomtype->amount}}/-</p>
-          <a href="{{route('web.booking',$Roomtype->id)}}" class="col-12 btn btn-primary">Booking Now</a>
+          <p class="card-text">Ammount: BDT- {{$Roomtype->amount}}/- per night</p>
+          <p>Room Type: AC </p>
+          <p>Max: 2 preson </p>
+          <p>Size: 45m<sup>2</sup></p>
+          <p>View: Sea View</p>
+          <p>Bed:1</p>
+          <a href="{{route('home')}}" class="col-12 btn btn-primary">Back</a>
         </div>
       </div>
     
