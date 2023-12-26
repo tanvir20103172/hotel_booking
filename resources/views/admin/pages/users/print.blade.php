@@ -2,10 +2,6 @@
 
 @section('content')
 <h2>User Information</h2>
-<a href="{{route('user.form')}}"class="btn btn-success">Add User</a>
-
-<a href="{{route('user.print')}}"  class="btn btn-secondary">Print</a>
-
 
 <table class="table">
   <thead>
@@ -17,7 +13,7 @@
       <th scope="col">Phone</th>
       <th scope="col">Email</th>
       <th scope="col">Address</th>
-      <th scope="col">Action</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -32,14 +28,15 @@
       <td>{{$user->phone}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->address}}</td>
-      <td>
-          <a type="button" href="{{route('admin.profile',$user->id)}}" class="btn btn-outline-primary">View</a>
-          <a type="button" href="{{route('profile.edit',$user->id)}}" class="btn btn-outline-success">Edit</a>
-          <a type="button" href="{{route('profile.delete',$user->id)}}"class="btn btn-outline-danger">Delete</a>
-          
-      </td>
+      
     </tr>
     @endforeach
+    <button class="btn btn-success" onclick="printlist()">Print List</button>
+    <script>
+    function printlist() {
+        window.print();
+    }
+    </script>
   </tbody>
 </table>
 

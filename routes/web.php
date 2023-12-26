@@ -36,7 +36,16 @@ use App\Http\Controllers\ReportController;
 Route::get('/',[FrontendHomeController::class,'home'])->name('home');
 Route::get('/search',[FrontendHomeController::class,'search'])->name('website.search');
 
-//room serch
+//about(header)
+Route::get('/web/about',[FrontendHomeController::class,'about'])->name('web.about');
+//our_room(header)
+Route::get('/web/our_rooms',[FrontendHomeController::class,'our_rooms'])->name('web.room');
+//amenities(header)
+Route::get('/web/amenities',[FrontendHomeController::class,'amenities'])->name('web.amenities');
+//contuct us(header)
+Route::get('/web/contuct_us',[FrontendHomeController::class,'contuct_us'])->name('web.contuct');
+
+//room search
 Route::post('/room-search',[FrontendHomeController::class,'room_search'])->name('website.room.search');
 
 
@@ -60,7 +69,8 @@ Route::get('/web/roomlistview/{id}',[FrontendRoomsController::class,'viewlist'])
 Route::get('/web/amenitiesview/{id}',[FrontendAmenitiesController::class,'view'])->name('website.amenitiesview');
 
 
-Route::group(['middlewere'=>'auth'],function(){
+
+    Route::group(['middleware'=>'customer'],function(){
 
     //profile view
     Route::get('/web/profile/',[FrontendLoginController::class, 'profile'])->name('web.profile');
@@ -68,11 +78,11 @@ Route::group(['middlewere'=>'auth'],function(){
     Route::post('/profile-update/{id}',[FrontendLoginController::class,'update'])->name('web.profile.update');
 
     //booking
-    Route::post('/web/booking/form',[FrontendBookingController::class, 'form'])->name('web.booking.form');
-
+    Route::post('/web/booking/form',[FrontendBookingController::class,'form'])->name('web.booking.form');
     Route::post('/web/booking/store',[FrontendBookingController::class, 'store'])->name('web.booking.store');
-
     Route::post('web/booking/room/store',[FrontendBookingController::class,'room_store'])->name('website.room.store');
+    //cancel Booking
+    //Route::get('/booking-delete/{id}',[FrontendBookingController::class,'delete'])->name('booking.delete');
 
     //web logout
     Route::get('/web/logout',[FrontendLoginController::class, 'web_logout'])->name('web.logout');
@@ -109,6 +119,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user/list',[UserController::class, 'list'])->name('user.list');
     Route::get('/user/list/form',[UserController::class, 'form'])->name('user.form');
     Route::post('/user/list/store',[UserController::class, 'store'])->name('user.store');
+    Route::get('/user/list/print',[UserController::class, 'print'])->name('user.print');
 
     // profile
     Route::get('/profile/{user_id}',[UserController::class, 'profile'])->name('admin.profile');

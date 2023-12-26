@@ -95,13 +95,13 @@
 
 <table class="table">
   <thead>
-    <tr>
+    <tr align="center">
       <th scope="col">#</th>
       <th scope="col">Date</th>
       <th scope="col">User Id</th>
-      <th scope="col">Room Id</th>
       <th scope="col">Name</th>
       <th scope="col">Phone No</th>
+      <th scope="col">Booking room Id</th>
       <th scope="col">Adults</th>
       <th scope="col">Children</th>
       <th scope="col">Checkin</th>
@@ -111,30 +111,6 @@
     </tr>
   </thead>
   <tbody>
-
-  @foreach($bookings as $booking)
-
-<tr align='center'>
-<th scope="row">{{$booking->id}}</th>
-<td>{{$booking->created_at}}</td>
-<td>{{auth()->user()->id}}</td>
-<td>{{$booking->room->id}}</td>
-<td>{{$booking->name}}</td>
-<td>{{$booking->phone}}</td>
-<td>{{$booking->adults}}</td>
-<td>{{$booking->children}}</td>
-<td>{{$booking->checkin}}</td>
-<td>{{$booking->checkout}}</td>
-<td>{{$booking->status}}</td>
-<td>
- @if($booking->status=='pending')
-    <a class="btn btn-danger" href="">Cancel Booking</a>
-@endif  
-</td>
-</tr>
-
-@endforeach
-
   </tbody>
 </table>
 @include('frontend.partial.footer')

@@ -138,4 +138,9 @@ class UserController extends Controller
          }
          return redirect()->back();
       }
+      public function print()
+    {
+        $users = User::all();
+        return view('admin.pages.users.print', compact('users'));
+    }
 }

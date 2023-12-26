@@ -78,6 +78,8 @@
 <body>
 
 
+    
+
     <form action="{{route('web.booking.store')}}" method="post">
         @csrf
         <h1 align='center'>Booking Form</h1>

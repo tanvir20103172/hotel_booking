@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Booking_room;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -85,11 +86,9 @@ class LoginController extends Controller
 
     public function profile()
     {
-        //$bookings=Booking::where('user_id',auth()->user()->id)->get();
-        //dd($bookings);
-        $bookings=Booking::all();
-        $user_id = User::all();
-        return view('frontend.pages.profile.view', compact('user_id','bookings'));
+       
+        
+        return view('frontend.pages.profile.view');
     }
 
     public function form($id){

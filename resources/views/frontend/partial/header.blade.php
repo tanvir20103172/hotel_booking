@@ -20,24 +20,21 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarsExample04">
                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                            <a class="nav-link" href="{{route('home')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="">About</a>
+                           <a class="nav-link" href="{{route('web.about')}}">About</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="">Our room</a>
+                           <a class="nav-link" href="{{route('web.room')}}">Our room</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="">Room List</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="">Amenity</a>
+                           <a class="nav-link" href="{{route('web.amenities')}}">Amenity</a>
                         </li>
 
                         <li class="nav-item">
-                           <a class="nav-link" href="">Contact Us</a>
+                           <a class="nav-link" href="{{route('web.contuct')}}">Contact Us</a>
                         </li>
                         @guest
                         <li class="nav-item">

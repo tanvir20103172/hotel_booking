@@ -55,7 +55,7 @@ class BookingController extends Controller
 
         ]);
         
-           dd($booking);
+           //dd($booking);
           //insert data into booking table
 
         $rooms=json_decode($request->rooms,true);
