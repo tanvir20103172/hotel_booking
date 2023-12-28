@@ -80,6 +80,25 @@ class BookingController extends Controller
         notify()->success('Booking Successful');
         return redirect()->route('home');
     }
+
+    public function booking_list($id){
+       $bookings=Booking::with('booking_room')->where('user_id', auth()->user()->id)->get();
+      
+      //dd($bookings);
+      return view('frontend.pages.booking.list', compact('bookings'));
+    }
+    public function cancel_booking($id){
+      $bookings=Booking::find($id);
+      //dd($bookings);
+      if($bookings){
+          $bookings->update([
+              'status'=>'Cancelled'
+          ]);
+      }
+      notify()->success('You cancel the booking');
+      return redirect()->back();
+
+  }
    
         
 }

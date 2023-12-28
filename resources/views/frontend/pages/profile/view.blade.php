@@ -93,25 +93,6 @@
 </div>
 </div>
 
-<table class="table">
-  <thead>
-    <tr align="center">
-      <th scope="col">#</th>
-      <th scope="col">Date</th>
-      <th scope="col">User Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Phone No</th>
-      <th scope="col">Booking room Id</th>
-      <th scope="col">Adults</th>
-      <th scope="col">Children</th>
-      <th scope="col">Checkin</th>
-      <th scope="col">Checkout</th>
-      <th scope="col">Status</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+
 @include('frontend.partial.footer')
 @endsection

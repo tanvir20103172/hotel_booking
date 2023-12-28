@@ -2,11 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
     public function list(){
-        return view('admin.pages.booking.list');
+        $bookings=Booking::with('booking_room')->get();
+        return view('admin.pages.booking.list',compact('bookings'));
     } 
-}
+    public function accept($id){
+        $bookings=Booking::find($id);
+        //dd($bookings);
+        if($bookings){
+            $bookings->update([
+                'status'=>'Accept'
+            ]);
+        }
+        notify()->success('Booking Accepted');
+        return redirect()->back();
+    } 
+    public function reject($id){
+        $bookings=Booking::find($id);
+        //dd($bookings);
+        if($bookings){
+            $bookings->update([
+                'status'=>'Rejected'
+            ]);
+        }
+        notify()->error('Booking Rejected');
+        return redirect()->back();
+
+    }
+    
+} 
+

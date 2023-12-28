@@ -4,7 +4,7 @@
 <h2>User Information</h2>
 <a href="{{route('user.form')}}"class="btn btn-success">Add User</a>
 
-<a href="{{route('user.print')}}"  class="btn btn-secondary">Print</a>
+<a href="{{route('user.print')}}"  class="btn btn-primary">Print</a>
 
 
 <table class="table">

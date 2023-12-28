@@ -78,4 +78,11 @@ class AmenitiesController extends Controller
              notify()->success('Delete Amenities Successful');
              return redirect()->back();
           }
+
+          public function print(){
+       
+            $allAmenities=Amenities::all();
+            
+            return view('admin.pages.amenities.print',compact('allAmenities'));
+        }
 }

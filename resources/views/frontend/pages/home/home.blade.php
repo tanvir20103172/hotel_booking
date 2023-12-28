@@ -23,6 +23,13 @@
       <!--  contact -->
       @include('frontend.partial.contact')
 
+      <hr>
+
+      <!--  review -->
+      @include('frontend.partial.review')
+
+      <hr>
+
       <!--  footer -->
       @include('frontend.partial.footer')
 

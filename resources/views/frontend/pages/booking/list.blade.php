@@ -1,6 +1,20 @@
-@extends('admin.master')
-@section('content')
+@extends('frontend.partial.master')
 
+@section('rony')
+@include('frontend.partial.header')
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Sea View</title>
+</head>
+<body>
+    <div class="container">
+    <h1  style="background-color:Gray;" align="center" >Booking List</h1>
+    </div>
     
 <table class="table">
     <thead>
@@ -36,15 +50,25 @@
         <td>{{$booking->checkin}}</td>
         <td>{{$booking->checkout}}</td>
         <td>{{$booking->status}}</td>
-
         @if($booking->status=='pending')
         <td> 
-          
-            <a href="{{route('booking.accept',$booking->id)}}" class="btn btn-success">Accept</a>
-            <a href="{{route('booking.reject',$booking->id)}}" class="btn btn-danger">Reject</a>
+            <a href="{{route('web.booking.cancel',$booking->id)}}" class="btn btn-danger">Cancel Booking</a>
         </td>
         @endif
+
+        @if($booking->status=='Accept')
+        <td>
+        <a href="" class="btn btn-primary">Payment</a>
+        </td>
+        @endif
+
+
+
+
     </tbody>
     @endforeach
 </table>
+</body>
+</html>
+@include('frontend.partial.footer')
 @endsection

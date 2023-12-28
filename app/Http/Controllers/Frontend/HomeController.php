@@ -52,6 +52,11 @@ class HomeController extends Controller
   {
     return view('frontend.pages.about.about');
   }
+
+  public function read_more()
+  {
+    return view('frontend.pages.about.read_more');
+  }
   public function our_rooms()
   {
     

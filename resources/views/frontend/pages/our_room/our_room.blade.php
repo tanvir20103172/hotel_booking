@@ -24,7 +24,7 @@
          <div class="col-md-4 col-sm-6">
             <div id="serv_hover" class="room">
                <div class="room_img">
-                  <figure><img height="30px" src="{{ url('/uploads/rooms/',$roomtype->room_image) }}"></figure>
+                  <figure><img style="width: 400px; height: 200px" src="{{ url('/uploads/rooms/',$roomtype->room_image) }}"></figure>
                </div>
                <div class="bed_room">
                   <h3>{{$roomtype->name}}</h3>

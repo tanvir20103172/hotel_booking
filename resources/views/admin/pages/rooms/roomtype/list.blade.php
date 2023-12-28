@@ -3,6 +3,8 @@
 @section('content')
 <h1>Room Type</h1>
 <a href="{{route('roomtype.form')}}"class="btn btn-success">Add Room Type</a>
+
+<a href="{{route('roomtype.print')}}"class="btn btn-primary">Print</a>
 <table class="table">
 <table class="table table-striped">
   <thead>

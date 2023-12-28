@@ -70,4 +70,10 @@ class HotelController extends Controller
         notify()->success('Delete Hotel Successfully');
         return redirect()->back();
      }
+
+     public function print()
+    {
+        $hotels = Hotel::all();
+        return view('admin.pages.hotel.print', compact('hotels'));
+    }
 }

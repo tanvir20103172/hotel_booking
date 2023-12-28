@@ -3,6 +3,8 @@
 @section('content')
 <h1>Room List</h1>
 <a href="{{route('roomlist.form')}}"class="btn btn-success">Add Room </a>
+
+<a href="{{route('room.print')}}"class="btn btn-primary">Print</a>
 <table class="table">
 <table class="table table-striped">
   <thead>

@@ -70,6 +70,12 @@
                     <span> Report </b></span></a>
             </li>
             <hr>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('review')}}">
+                <i class="fa-solid fa-star" style="color: #000000;"></i>
+                    <span> Review </b></span></a>
+            </li>
+            <hr>
    
 
 

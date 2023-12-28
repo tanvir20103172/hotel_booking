@@ -11,11 +11,14 @@ class Booking extends Model
     protected $guarded=[];
     
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function booking_room(){
-        return $this->hasMany(Booking_room::class);
+        return $this->hasOne(Booking_room::class);
+    }
+    public function room(){
+        return $this->hasOne(Room::class);
     }
     
 }

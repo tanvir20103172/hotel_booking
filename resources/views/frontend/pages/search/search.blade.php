@@ -26,7 +26,7 @@
             <div class="col-md-4 col-sm-6">
                 <div id="serv_hover" class="room">
                     <div class="room_img">
-                        <figure><img height="30px" src="{{ url('/uploads/rooms/',$room->image) }}"></figure>
+                        <figure><img style="width: 400px; height: 200px" src="{{ url('/uploads/rooms/',$room->image) }}"></figure>
                     </div>
                     <div class="bed_room">
                         <h3>{{$room->room_name}}</h3>
@@ -39,11 +39,10 @@
                         <p class="card-text">Bed:1</p>
                         <label for="cars">Select Room:</label>
                         <select id="cars" name="room_no[]">
-                            <option value="">Select Nummber of room</option>
+                            <option value="">Select Number of room</option>
                             <option value="1_{{$room->id}}">01</option>
                             <option value="2_{{$room->id}}">02</option>
-                            <option value="3_{{$room->id}}">03</option>
-                            <option value="4_{{$room->id}}">04</option>
+                            
                         </select>
                     </div>
                     <div>

@@ -116,6 +116,7 @@
                <div class="col-md-5">
                   <div class="book_room">
                      <h1>Book a Room Online</h1>
+                     <h3 align="center" class="text-white">(Check Available Room)</h3>
                      <form action="{{route('website.room.search')}}" class="book_now" method="post">
                         @csrf
                         <div class="row">

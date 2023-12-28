@@ -5,7 +5,7 @@
 
 <a href="{{route('hotel.form')}}"class="btn btn-success">Add Branch</a> 
 
-
+<a href="{{route('hotel.print')}}"  class="btn btn-primary">Print</a>
 <table class="table">
 <table class="table table-striped">
   <thead>

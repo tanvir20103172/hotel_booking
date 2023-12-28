@@ -1,22 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\RoomtypeController;
+use App\Http\Controllers\AmenitiesController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
 use App\Http\Controllers\Frontend\RoomsController as FrontendRoomsController;
+use App\Http\Controllers\Frontend\ReviewController as FrontendReviewController;
 use App\Http\Controllers\Frontend\BookingController as FrontendBookingController;
 use App\Http\Controllers\Frontend\AmenitiesController as FrontendAmenitiesController;
-use App\Http\Controllers\GuestController;
-use App\Http\Controllers\HotelController;
-use App\Http\Controllers\RoomController;
-use App\Http\Controllers\RoomtypeController;
-use App\Http\Controllers\AmenitiesController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\ReportController;
 //use App\Http\Controllers\notify;
 
 
@@ -38,6 +40,8 @@ Route::get('/search',[FrontendHomeController::class,'search'])->name('website.se
 
 //about(header)
 Route::get('/web/about',[FrontendHomeController::class,'about'])->name('web.about');
+Route::get('/web/about/read_more',[FrontendHomeController::class,'read_more'])->name('web.about.read_more');
+
 //our_room(header)
 Route::get('/web/our_rooms',[FrontendHomeController::class,'our_rooms'])->name('web.room');
 //amenities(header)
@@ -76,13 +80,18 @@ Route::get('/web/amenitiesview/{id}',[FrontendAmenitiesController::class,'view']
     Route::get('/web/profile/',[FrontendLoginController::class, 'profile'])->name('web.profile');
     Route::get('/profile/edit/form/{id}',[FrontendLoginController::class,'form'])->name('web.profile.form');
     Route::post('/profile-update/{id}',[FrontendLoginController::class,'update'])->name('web.profile.update');
-
+    
+    //view booking list
+    Route::get('/web/booking/list/{id}',[FrontendBookingController::class, 'booking_list'])->name('web.booking.list');
+    Route::get('/web/booking/cancel/{id}',[FrontendBookingController::class, 'cancel_booking'])->name('web.booking.cancel');
     //booking
     Route::post('/web/booking/form',[FrontendBookingController::class,'form'])->name('web.booking.form');
     Route::post('/web/booking/store',[FrontendBookingController::class, 'store'])->name('web.booking.store');
     Route::post('web/booking/room/store',[FrontendBookingController::class,'room_store'])->name('website.room.store');
-    //cancel Booking
-    //Route::get('/booking-delete/{id}',[FrontendBookingController::class,'delete'])->name('booking.delete');
+    
+    //Review
+    Route::get('/web/review',[FrontendReviewController::class,'review'])->name('web.review');
+    Route::post('/web/review/store',[FrontendReviewController::class,'store'])->name('web.review.store');
 
     //web logout
     Route::get('/web/logout',[FrontendLoginController::class, 'web_logout'])->name('web.logout');
@@ -133,6 +142,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hotel/list',[HotelController::class,'list'])->name('hotel');
     Route::get('/hotel/list/form',[HotelController::class,'form'])->name('hotel.form');
     Route::post('/hotel/store',[HotelController::class,'store'])->name('hotel.store');
+    Route::get('/hotel/list/print',[HotelController::class, 'print'])->name('hotel.print');
 
     Route::get('/hotel-edit/{id}',[HotelController::class,'edit'])->name('hotel.edit');
     Route::post('/hotel-update/{id}',[HotelController::class,'update'])->name('hotel.update');
@@ -145,7 +155,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/room-edit/{id}',[RoomController::class,'edit'])->name('room.edit');
     Route::put('/room-update/{id}',[RoomController::class,'update'])->name('room.update');
     Route::get('/room-delete/{id}',[RoomController::class,'delete'])->name('room.delete');
-    
+    Route::get('/room/list/print',[RoomController::class, 'print'])->name('room.print');
+
     //Room Type
     Route::get('/roomtype/list',[RoomtypeController::class,'list'])->name('roomtype.list');
     Route::get('/roomtype/list/form',[RoomtypeController::class,'form'])->name('roomtype.form');
@@ -153,6 +164,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/roomtype-edit/{id}',[RoomtypeController::class,'edit'])->name('roomtype.edit');
     Route::put('/roomtype-update/{id}',[RoomtypeController::class,'update'])->name('roomtype.update');
     Route::get('/roomtype-delete/{id}',[RoomtypeController::class,'delete'])->name('roomtype.delete');
+    Route::get('/roomtype/list/print',[RoomtypeController::class, 'print'])->name('roomtype.print');
 
     //Amenities
     Route::get('/amenities/list',[AmenitiesController::class,'list'])->name('amenities.list');
@@ -161,18 +173,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/amenities-edit/{id}',[AmenitiesController::class,'edit'])->name('amenities.edit');
     Route::put('/amenities-update/{id}',[AmenitiesController::class,'update'])->name('amenities.update');
     Route::get('/amenities-delete/{id}',[AmenitiesController::class,'delete'])->name('amenities.delete');
-    
+    Route::get('/amenities/list/print',[AmenitiesController::class, 'print'])->name('amenities.print');
+
     //Payment
     Route::get('/payment/list',[PaymentController::class,'list'])->name('payment.list');
 
 
     //Booking
     Route::get('/booking/list',[BookingController::class,'list'])->name('booking.list');
+    Route::get('/booking/accept/{id}',[BookingController::class,'accept'])->name('booking.accept');
+    Route::get('/booking/reject/{id}',[BookingController::class,'reject'])->name('booking.reject');
 
     
 
     //Report
     Route::get('/report',[ReportController::class,'report'])->name('report');
+
+    //Review
+    Route::get('/report/list',[ReviewController::class,'review'])->name('review');
 
 
 });

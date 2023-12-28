@@ -4,10 +4,11 @@ namespace App\Http\Controllers\frontend;
 
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\Booking_room;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Booking_room;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -83,12 +84,22 @@ class LoginController extends Controller
         ]);
         return redirect()->back();
     }
+    
 
+    //public function profile($id)
+// {
+//     $id = Crypt::decrypt($id);
+//     $measurements =  DB::select( DB::raw("SELECT * FROM measurements WHERE custom_id = '$id'") );
+//     $customers = DB::table('customers')->where('customer_id', '=', $id)->get();
+//     return view('measurements.profile', compact('measurements','customers'));
+// }
     public function profile()
     {
-       
         
-        return view('frontend.pages.profile.view');
+        $bookings=Booking::all();
+        $booking=Booking_room::with('bookings');
+        // dd($bookings);
+        return view('frontend.pages.profile.view', compact('bookings', 'booking'));
     }
 
     public function form($id){

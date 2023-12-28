@@ -13,12 +13,20 @@
                   <div class="col-md-4">
                      <h3>Menu Link</h3>
                      <ul class="link_menu">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="about.html"> about</a></li>
-                        <li><a href="room.html">Our Room</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        <li><a href="{{route('web.about')}}"> about</a></li>
+                        <li><a href="{{route('web.room')}}">Our Room</a></li>
+                        <li><a href="{{route('web.amenities')}}">Amenity</a></li>
+                        <li><a href="{{route('web.contuct')}}">Contact Us</a></li>
+                        @guest
+                        <li><a href="{{route('website.login')}}">Login</a></li>
+                        <li><a href="{{route('website.registration')}}">Registration</a></li>
+                        @endguest
+                        @auth
+                        <li><a href="{{route('web.profile',auth()->user()->id)}}"> My Profile</a></li>
+                        <li><a href="{{route('web.booking.list',auth()->user()->id)}}"> Booking List</a></li>
+                        <li><a href="{{route('web.logout')}}"> Logout</a></li>
+                        @endauth
                      </ul>
                   </div>
                   <div class="col-md-4">
