@@ -63,12 +63,12 @@
                 <i class="fa-solid fa-money-bill" style="color: #000000;"></i>
                     <span> <b>Payment </b></span></a>
             </li>
-            <hr>
+            
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('report')}}">
+                <a class="nav-link" href="{{route('contuct.list')}}">
                 <i class="fa-solid fa-file" style="color: #000000;"></i>
-                    <span> Report </b></span></a>
-            </li>
+                    <span> Contuct List </b></span></a>
+            </li> 
             <hr>
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('review')}}">

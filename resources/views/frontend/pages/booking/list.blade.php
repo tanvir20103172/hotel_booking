@@ -25,42 +25,48 @@
             <th scope="col">Phone No</th>
             <th scope="col">Adults</th>
             <th scope="col">Children</th>
-            <th scope="col">Booking Id</th>
-            <th scope="col">Room Id</th>
-            <th scope="col">Room Quantity</th>
-            <th scope="col">Total Price</th>
+           
             <th scope="col">Checkin</th>
             <th scope="col">Checkout</th>
             <th scope="col">Status</th>
+            <th scope="col">Payment Status</th>
+
             <th scope="col">Action</th>
         </tr>
     </thead>
     @foreach ($bookings as $key=>$booking)
-    <tbody>
+    <tbody align="center">
         <th scope="row">{{$key+1}}</th>
         <td>{{$booking->user_id}}</td>
         <td>{{$booking->name}}</td>
         <td>{{$booking->phone}}</td>
         <td>{{$booking->adults}}</td>
         <td>{{$booking->children}}</td>
-        <td>{{$booking->booking_room->booking_id}}</td>
-        <td>{{$booking->booking_room->room_id}}</td>
-        <td>{{$booking->booking_room->quantity}}</td>
-        <td>{{$booking->booking_room->sub_total}}</td>
+        
+
+
+        
         <td>{{$booking->checkin}}</td>
         <td>{{$booking->checkout}}</td>
         <td>{{$booking->status}}</td>
+        <td>{{$booking->payment_status}}</td>
+        
+        
         @if($booking->status=='pending')
         <td> 
             <a href="{{route('web.booking.cancel',$booking->id)}}" class="btn btn-danger">Cancel Booking</a>
         </td>
         @endif
-
+        
         @if($booking->status=='Accept')
         <td>
-        <a href="" class="btn btn-primary">Payment</a>
+        <a href="{{route('payment',$booking->id)}}" class="btn btn-primary">Payment</a>
         </td>
         @endif
+
+        
+
+        
 
 
 

@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('checkin');
             $table->text('checkout');
             $table->text('status')->default('pending');
+            $table->string('transaction_id')->unique();
+            $table->string('payment_status')->nullable();
             $table->timestamps();
         });
     }

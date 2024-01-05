@@ -15,7 +15,7 @@ class Booking extends Model
     }
 
     public function booking_room(){
-        return $this->hasOne(Booking_room::class);
+        return $this->hasMany(Booking_room::class);
     }
     public function room(){
         return $this->hasOne(Room::class);

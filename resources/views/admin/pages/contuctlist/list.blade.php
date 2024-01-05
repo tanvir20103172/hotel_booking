@@ -1,4 +1,4 @@
-@extends('admin.master')
+ @extends('admin.master')
 @section('content')
 <h2>Report</h2>
 <html>

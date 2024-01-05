@@ -34,6 +34,10 @@ class BookingController extends Controller
         return redirect()->back();
 
     }
+    public function print(){
+        $bookings=Booking::all();
+        return view('admin.pages.booking.print',compact('bookings'));
+    } 
     
 } 
 

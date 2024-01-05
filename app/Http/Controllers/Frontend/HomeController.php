@@ -72,4 +72,8 @@ class HomeController extends Controller
   {
     return view('frontend.pages.contuct_us.contuct_us');
   }
+  public function contuct_us_store()
+  {
+    
+  }
 }

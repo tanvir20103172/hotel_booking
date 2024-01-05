@@ -28,7 +28,7 @@
       <!--  review -->
       @include('frontend.partial.review')
 
-      <hr>
+      
 
       <!--  footer -->
       @include('frontend.partial.footer')
