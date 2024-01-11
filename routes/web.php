@@ -109,7 +109,6 @@ Route::group(['middleware' => 'customer'], function () {
 
     Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
     //SSLCOMMERZ END
-    // Route::get('/web/payment',[FrontendBookingController::class, 'payment'])->name('web.payment');
 
 
     //Review
@@ -209,11 +208,12 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
-            //Report
-            Route::get('/report', [ContuctController::class, 'list'])->name('contuct.list');
+            //Contuct Us
+            Route::get('/contuct-us', [ContuctController::class, 'list'])->name('contuct.list');
 
             //Review
             Route::get('/report/list', [ReviewController::class, 'review'])->name('review');
+            Route::get('/review-delete/{id}', [ReviewController::class, 'delete'])->name('review.delete');
         });
     });
 });

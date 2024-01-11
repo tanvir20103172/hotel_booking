@@ -31,15 +31,11 @@
                   </div>
                   <div class="col-md-4">
                      <h3>News letter</h3>
-                     <form class="bottom_form">
-                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                        <button class="sub_btn">subscribe</button>
-                     </form>
+                     
                      <ul class="social_icon">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/tanvirahammad.rony/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>  
+                        <li><a href="https://www.linkedin.com/in/md-tanvir-1386261a3/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=uDeXz-f3TVI"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                      </ul>
                   </div>
                </div>
@@ -52,7 +48,7 @@
                         <p>
                         © 2023 All Rights Reserved. Md. Tanvir Ahammad 
                         <br><br>
-                        Distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                        
                         </p>
 
                      </div>

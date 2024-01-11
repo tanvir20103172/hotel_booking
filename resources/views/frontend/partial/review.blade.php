@@ -1,23 +1,30 @@
-<div class="container">
-  <div class="text-center">
-    <h1 >Read Customer Reviews</h1>
-    @auth
-    <a class="btn btn-primary" href="{{route('web.review')}}">Give Review</a>
-    @endauth
-  </div>
 
+  <div class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="row container-fluid">
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="card-title" align="center" ><b>Read Customer Reviews</b></h1>
+             
+              @auth
+              <a align="center"  class="btn btn-primary" href="{{route('web.review')}}">Give Review</a>
+              @endauth
+              <div class="owl-carousel">
 
-  @foreach($reviewRatings as $review)
-  <div class="container justify-content-center  ">
-    <div class=" row">
-      <div class="card col-md-4 col-sm-6 mt-2 float-left ">
-        <img src="{{url('uploads/users',$review->user->image)}}" class="wpx-100 img-round mgb-20 ">
-        <p class="fs-110 font-cond-l" contenteditable="false">"{{$review->review}}"</p>
-        <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Guest Name:{{$review->user->name}}</h5>
-        <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Role:{{$review->user->role}}</small>
+              @foreach($reviewRatings as $review)
+                <div class="item">
+                <img src="{{url('uploads/users',$review->user->image)}}" class="wpx-1000 img-round mgb-20 ">
+                  <p align="center" class="fs-110 font-cond-l" contenteditable="true">"{{$review->review}}"</p>
+                  <h5 align="center"  class="font-cond mgb-5 fg-text-d fs-130" contenteditable="true">Guest Name:{{$review->user->name}}</h5>
+                  
+                </div>
+
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  @endforeach
-

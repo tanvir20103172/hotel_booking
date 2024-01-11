@@ -1,44 +1,28 @@
  @extends('admin.master')
-@section('content')
-<h2>Report</h2>
-<html>
-<body>
-<p id="demo"></p>
-<script>
-const d = new Date();
-document.getElementById("demo").innerHTML = d;
-</script>
+ @section('content')
+ <h2>Contuct List</h2>
 
-</body>
-</html>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-@endsection
+ <table class="table">
+   <thead>
+     <tr>
+       <th scope="col">Si</th>
+       <th scope="col">Name</th>
+       <th scope="col">Email</th>
+       <th scope="col">Phone No</th>
+       <th scope="col">Message</th>
+     </tr>
+   </thead>
+   <tbody>
+   @foreach($contuct as $key=> $contucts)
+     <tr>
+       <th scope="row">{{$key+1}}</th>
+       <td>{{$contucts->name}}</td>
+       <td>{{$contucts->email}}</td>
+       <td>{{$contucts->phone}}</td>
+       <td>{{$contucts->message}}</td>
+     </tr>
+     @endforeach
+   </tbody>
+ </table>
+ {{$contuct->links()}}
+ @endsection

@@ -41,7 +41,7 @@
                         <select id="cars" name="room_no[]">
                             <option value="">Select Number of room</option>
                             <option value="1_{{$room->id}}">01</option>
-                            <option value="2_{{$room->id}}">02</option>
+                            
                             
                         </select>
                     </div>
@@ -62,6 +62,7 @@
     </div>
 </div>
 </form>
+
 <!--  footer -->
 @include('frontend.partial.footer')
 

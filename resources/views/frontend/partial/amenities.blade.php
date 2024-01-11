@@ -24,7 +24,7 @@
                <div class="bed_room">
                   <h3>{{$amenities->amenities_type}}</h3>
                   
-                  <a href="{{route('website.amenitiesview',$amenities->id)}}"class="btn btn-info text-light">View More</a> 
+                  
                </div>
             </div>
          </div>

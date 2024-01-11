@@ -58,11 +58,7 @@
                     <span> <b>Booking </b></span></a>
             </li>
             <hr>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('payment.list')}}">
-                <i class="fa-solid fa-money-bill" style="color: #000000;"></i>
-                    <span> <b>Payment </b></span></a>
-            </li>
+            
             
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('contuct.list')}}">

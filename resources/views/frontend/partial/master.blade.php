@@ -27,6 +27,8 @@
    <!-- Tweaks for older IEs-->
    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
+
    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -117,7 +119,62 @@
       .font-cond-b {
          font-weight: 700 !important;
       }
+
+
+
+
+
+      .stretch-card>.card {
+         width: 100%;
+         min-width: 100%
+      }
+
+      body {
+         background-color: #f9f9fa
+      }
+
+      .flex {
+         -webkit-box-flex: 1;
+         -ms-flex: 1 1 auto;
+         flex: 1 1 auto
+      }
+
+      @media (max-width:991.98px) {
+         .padding {
+            padding: 1.5rem
+         }
+      }
+
+      @media (max-width:767.98px) {
+         .padding {
+            padding: 1rem
+         }
+      }
+
+      .padding {
+         padding: 3rem
+      }
+
+
+      .owl-carousel .item {
+         margin: 3px;
+      }
+
+      .owl-carousel .item img {
+         display: block;
+         width: 100%;
+         height: auto;
+      }
+
+      .owl-carousel .item {
+         margin: 3px;
+      }
+
+      .owl-carousel {
+         margin-bottom: 15px;
+      }
    </style>
+
 </head>
 <!-- body -->
 
@@ -155,6 +212,7 @@
    <!-- sidebar -->
    <script src="{{url('frontend/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
    <script src="{{url('frontend/js/custom.js')}}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
    @notifyJs
    <script>
       (function(window, document) {
@@ -167,6 +225,42 @@
 
          window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
       })(window, document);
+
+
+
+
+
+
+
+
+
+
+
+      $(document).ready(function() {
+
+         $(".owl-carousel").owlCarousel({
+
+            autoPlay: 3000,
+            items: 4,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [979, 3],
+            center: true,
+            nav: true,
+            loop: true,
+            responsive: {
+               600: {
+                  items: 4
+               }
+            }
+
+
+
+
+
+
+         });
+
+      });
    </script>
 
 </body>

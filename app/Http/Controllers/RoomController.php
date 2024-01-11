@@ -25,7 +25,7 @@ class RoomController extends Controller
             'image' => 'required',
             'room_name' => 'required',
             'room_no' => 'required',
-            'amount' => 'required'
+            'amount' => 'required|numeric|gt:0'
         ]);
 
         if ($valided->fails()) {

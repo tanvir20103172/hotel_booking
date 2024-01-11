@@ -56,6 +56,7 @@ class LoginController extends Controller
     public function registration()
     {
         return view('frontend.pages.registration.form');
+        notify()->success('Registration Successfull');
     }
 
     public function user_registration(Request $request)
@@ -82,6 +83,7 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ]);
+        notify()->success('Registration Successfull');
         return redirect()->back();
     }
     

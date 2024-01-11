@@ -7,9 +7,11 @@ use App\Models\Room;
 use App\Models\Booking;
 use App\Models\Roomtype;
 use App\Models\Amenities;
+use App\Models\Contuct_us;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Booking_room;
+use App\Models\Review;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -18,6 +20,7 @@ class HomeController extends Controller
   {
     $allAmenities = Amenities::all();
     $roomtypes = Roomtype::all();
+    //  $reviews = Review::paginate(2);
 
     // dd($rooms);
     // dd($roomtypes);
@@ -72,8 +75,31 @@ class HomeController extends Controller
   {
     return view('frontend.pages.contuct_us.contuct_us');
   }
-  public function contuct_us_store()
+
+
+
+  public function contuct_us_store(Request $request)
   {
+    $valided=Validator::make($request->all(),[
+      'name'=>'required',
+      'email'=>'required',
+      'phone'=>'required',
+      'message'=>'required'
+     
+  ]);
+
+  if($valided->fails()){
+      return redirect()->back()->witherrors($valided);
+  }
+  Contuct_us::create([
+      'name'=>$request->name,
+      'email'=>$request->email,
+      'phone'=>$request->phone,
+      'message'=>$request->message
+      
+  ]);
+  notify()->success('Successful');
+  return redirect()->back();
+  } 
     
   }
-}

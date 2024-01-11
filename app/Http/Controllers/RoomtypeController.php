@@ -24,7 +24,7 @@ class RoomtypeController extends Controller
         $valided = Validator::make($request->all(), [
             'room_image' => 'required',
             'name' => 'required',
-            'amount' => 'required'
+            'amount' => 'required|numeric|gt:0'
         ]);
 
         if ($valided->fails()) {

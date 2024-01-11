@@ -27,14 +27,14 @@
                            <a class="nav-link" href="{{route('web.about')}}">About</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="{{route('web.room')}}">Our room</a>
+                           <a class="nav-link" href="{{route('web.room')}}">Room</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{{route('web.amenities')}}">Amenities</a>
                         </li>
 
                         <li class="nav-item">
-                           <a class="nav-link" href="{{route('web.contuct')}}">Contact Us</a>
+                           <a class="nav-link" href="{{route('web.contuct')}}">Contact</a>
                         </li>
                         @guest
                         <li class="nav-item">

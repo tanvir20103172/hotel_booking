@@ -37,7 +37,7 @@
           <a class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
           <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a> -->
           
-          <a href="" type="button" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-color="dark">View</a>
+          
           <a href="{{route('hotel.edit',$hotel->id)}}" type="button" class="btn btn-outline-success btn-rounded" data-mdb-ripple-color="dark">Edit</a>
           <a href="{{route('hotel.delete', $hotel->id)}}" type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark">Delete</a>
 
